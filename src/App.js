@@ -96,6 +96,8 @@ const App = () => {
               console.log(state)
               break;
             }
+            default:
+              console.log("Unknown state")
           }
           break;
         }
@@ -140,7 +142,8 @@ const App = () => {
               }
               break;
             }
-            break;
+            default:
+              console.log(`Response name unknown:${response.name}`)
           }
           break;
         }
@@ -163,12 +166,13 @@ const App = () => {
     commandServer.sendMessage(msg)
     console.log("Sent: ",msg)
   }
-
+  /*
   const wsSendMessageVideoServer = (name, data='') => {
     let msg = `{"type":"command", "name":"${name}", "data": {${data}}}`
     videoServer.sendMessage(msg)
     console.log("Sent: ",msg)
   }
+  */
   ////////////////////
 
   //APP STATE VARIBLES
@@ -222,7 +226,15 @@ const App = () => {
   //AUTH UTILITY FUNCTIONS
   const sendAuthData = (user, pass) => {
     wsSendMessage("Login", `"Username":"${user}", "Password":"${pass}"`)
-    wsSendMessageVideoServer("Login", `"Username":"${user}", "Password":"${pass}"`)
+    //wsSendMessageVideoServer("Login", `"Username":"${user}", "Password":"${pass}"`)
+  }
+
+  const sendAuthChangeUser = (pass, oldUser, newUser) => {
+    wsSendMessage("ChangeUsername", `"Password":"${pass}", "OldUsername":"${oldUser}", "NewUsername":"${newUser}",`)
+  }
+
+  const sendAuthChangePass = (oldUser, newUser) => {
+    wsSendMessage("ChangeUsername", `"OldUsername":"${oldUser}", "NewUsername":"${newUser}",`)
   }
   ////////////////////
 
@@ -230,7 +242,7 @@ const App = () => {
   return (
     <div className={classes.appWrapper}>
       <Header />
-      {!logedin ? <Login sendLoginInfo = {sendAuthData} /> : <></>}
+      {!logedin ? <Login sendLoginInfo = {sendAuthData} changeUsername = {sendAuthChangeUser} changePassword = {sendAuthChangePass} activatePopup = {activatePopup}/> : <></>}
       {logedin ? <div className={classes.grid}>
         <div className={classes.box1}><VideoDisplay sendCommand = {wsSendMessage} imgSrc = {frame} videoOn = {videoOn}/></div>
         <div className={classes.box2}><VideoControls sendCommand = {wsSendMessage} setVideoState = {setVideoOn} state = {state} imgSrc = {frame} videoOn = {videoOn}/></div>

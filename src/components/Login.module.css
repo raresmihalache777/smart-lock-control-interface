@@ -16,11 +16,24 @@
     margin-bottom: 5px;
 }
 
+.flexrowCenter{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
 .resetBtn{
     min-width: 100px;
     font-weight: bold;
     font-size: large;
-    margin:5px;
+    margin-top:10px;
+    margin-bottom:10px;
     background-color: white;
+}
+
+.whiteBtn{
+    background-color: white;
+    border-color: white;
+    color:blueviolet;
+    border-width: 0px;
 }
 

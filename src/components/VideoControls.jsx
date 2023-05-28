@@ -34,8 +34,8 @@ const VideoControls = (props) => {
     <div className = {classes.videoControlsWrapper}>
         <button 
           onClick = {handleConnect}
-          className={frame != 'None' && videoOn === 'True' ? isConnectedClass : notConnectedClass}>
-            {frame != 'None' && videoOn === 'True' ? 'Turn Off' : 'Turn on'}
+          className={frame !== 'None' && videoOn === 'True' ? isConnectedClass : notConnectedClass}>
+            {frame !== 'None' && videoOn === 'True' ? 'Turn Off' : 'Turn on'}
         </button>
         <button 
           onClick = {() => lightOn === 'True' ? sendCommand("LightOff") : sendCommand("LightOn")}
