@@ -248,11 +248,11 @@ const App = () => {
   }
 
   const sendAuthChangeUser = (pass, oldUser, newUser) => {
-    wsSendMessage("ChangeUsername", `"Password":"${pass}", "OldUsername":"${oldUser}", "NewUsername":"${newUser}",`)
+    wsSendMessage("ChangeUsername", `"Password":"${pass}", "OldUsername":"${oldUser}", "NewUsername":"${newUser}"`)
   }
 
   const sendAuthChangePass = (oldUser, newUser) => {
-    wsSendMessage("ChangeUsername", `"OldUsername":"${oldUser}", "NewUsername":"${newUser}",`)
+    wsSendMessage("ChangeUsername", `"OldUsername":"${oldUser}", "NewUsername":"${newUser}"`)
   }
   ////////////////////
 
