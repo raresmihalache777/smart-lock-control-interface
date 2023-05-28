@@ -1,0 +1,16 @@
+.flexcol{
+    display:flex;
+    flex-direction: column;
+}
+
+.flexrow{
+    display:flex;
+}
+
+.registerBtn{
+    min-width: 100px;
+    font-weight: bold;
+    font-size: large;
+    margin-top:5px;
+    background-color: white;
+}

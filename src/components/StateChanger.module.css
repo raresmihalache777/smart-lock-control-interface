@@ -1,0 +1,23 @@
+.flexRow{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.activeBtn{
+    min-width: 100px;
+    font-weight: bold;
+    font-size: x-large;
+    margin:5px;
+    background-color: #04B22B;
+    color: white;
+
+}
+
+.deactiveBtn{
+    min-width: 100px;
+    font-weight: bold;
+    font-size: large;
+    margin:5px;
+    background-color: white;
+}

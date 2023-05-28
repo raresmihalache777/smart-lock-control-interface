@@ -1,0 +1,9 @@
+.videoDisplayWrapper{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+img{
+    max-height: 200px;
+}
