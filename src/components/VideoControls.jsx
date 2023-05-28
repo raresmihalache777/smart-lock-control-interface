@@ -26,7 +26,7 @@ const VideoControls = (props) => {
             {videoOn != 'None' ? 'Turn Off' : 'Turn on'}
         </button>
         <button 
-          onClick = {() => lightOn ? sendCommand("LightOff") : sendCommand("LightOn")}
+          onClick = {() => lightOn === 'True' ? sendCommand("LightOff") : sendCommand("LightOn")}
           className={lightOn === 'True' ? lightOnClass : lightOffClass}>
             Light switch
           </button>

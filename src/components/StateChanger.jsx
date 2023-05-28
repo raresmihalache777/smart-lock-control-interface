@@ -4,7 +4,7 @@ import classes from './StateChanger.module.css'
 const StateChanger = (props) => {
   let state = props.state;
   let changeState = props.sendCommand
-  console.log(state.isLocked )
+  console.log(state.isLocked)
   
 
   return (
