@@ -6,7 +6,7 @@ const VideoDisplay = (props) => {
   //console.log(typeof props.imgSrc)
   return (
     <div className={classes.videoDisplayWrapper}>
-      {props.imgSrc != 'None' ? <img src={`data:image/jpeg;base64,${props.imgSrc}`}/> : <img src={require("../images/sertar.jpeg")}/>}
+      {props.imgSrc != 'None' && props.videoOn === 'True' ? <img src={`data:image/jpeg;base64,${props.imgSrc}`}/> : <img src={require("../images/sertar.jpeg")}/>}
     </div>
   )
 }

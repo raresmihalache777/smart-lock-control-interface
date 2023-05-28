@@ -5,8 +5,9 @@ import classes from './VideoControls.module.css'
 
 const VideoControls = (props) => {
 
-  let videoOn = props.imgSrc
-  console.log(videoOn)
+  let frame = props.imgSrc
+  let videoOn = props.videoOn
+  //console.log(videoOn)
   let lightOn = props.state.lightOn
 
   let isConnectedClass = classes.connectedBtn
@@ -17,13 +18,24 @@ const VideoControls = (props) => {
 
   let sendCommand = props.sendCommand
 
+  const handleConnect = (e) => {
+    e.preventDefault()
+    if(props.videoOn === 'False'){
+      props.setVideoState('True')
+    }else if(props.videoOn === 'True'){
+      props.setVideoState('False')
+    }else{
+      props.setVideoState('True')
+    }
+    
+  }
 
   return (
     <div className = {classes.videoControlsWrapper}>
         <button 
-          
-          className={videoOn != 'None' ? isConnectedClass : notConnectedClass}>
-            {videoOn != 'None' ? 'Turn Off' : 'Turn on'}
+          onclick = {handleConnect}
+          className={frame != 'None' && videoOn === 'True' ? isConnectedClass : notConnectedClass}>
+            {frame != 'None' && videoOn === 'True' ? 'Turn Off' : 'Turn on'}
         </button>
         <button 
           onClick = {() => lightOn === 'True' ? sendCommand("LightOff") : sendCommand("LightOn")}

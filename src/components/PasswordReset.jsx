@@ -22,7 +22,7 @@ const PasswordReset = (props) => {
   function handleClick(e){
     e.preventDefault()
     if(validatePass() === 1){
-      sendCommand("ChangeKaypadPassword", `"OldPassword": "${oldPasRef.current.value}","NewPassword": "${newPasRef.current.value}"`)
+      sendCommand("ChangeKeypadPassword", `"OldPassword": "${oldPasRef.current.value}","NewPassword": "${newPasRef.current.value}"`)
     }else{
       activatePopup(validatePass())
     }

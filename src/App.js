@@ -117,15 +117,15 @@ const App = () => {
               break;
             }
 
-            case 'ChangeKaypadPassword':{
+            case 'ChangeKeypadPassword':{
               if(response.data.status === 'ok'){
                 activatePopup("New password was succesfully set!")
               }else if(response.data.status === 'wrongpass'){
                 activatePopup("Wrong password!")
               }else if(response.data.status === 'badpass'){
-                activatePopup("Wrong password format! The password should only contain numbers from 1-9.")
+                activatePopup("Wrong password format! The password should only contain numbers from 1-9 and contain a minimum of 3 numbers.")
               }else{
-                console.log("Unknown 'ChangeKaypadPassword' status response")
+                console.log("Unknown 'ChangeKeypadPassword' status response")
               }
               break;
             }
@@ -178,6 +178,8 @@ const App = () => {
   const [popupType, setPopupType] = useState('NORMAL')
   const [logedin, setLogedIn] = useState(0)
   const [frame, setFrame] = useState('None')
+  const [videoOn, setVideoOn] = useState('False')
+
   console.log('app')
   ////////////////////
 
@@ -212,7 +214,7 @@ const App = () => {
       ...state,
       alarmOn: 'False'
     })
-    wsSendMessage("Command","AlarmOff")
+    wsSendMessage("AlarmOff")
     disablePopup()
   }
 
@@ -230,8 +232,8 @@ const App = () => {
       <Header />
       {!logedin ? <Login sendLoginInfo = {sendAuthData} /> : <></>}
       {logedin ? <div className={classes.grid}>
-        <div className={classes.box1}><VideoDisplay sendCommand = {wsSendMessage} imgSrc = {frame}/></div>
-        <div className={classes.box2}><VideoControls sendCommand = {wsSendMessage} state = {state} imgSrc = {frame}/></div>
+        <div className={classes.box1}><VideoDisplay sendCommand = {wsSendMessage} imgSrc = {frame} videoOn = {videoOn}/></div>
+        <div className={classes.box2}><VideoControls sendCommand = {wsSendMessage} setVideoState = {setVideoOn} state = {state} imgSrc = {frame} videoOn = {videoOn}/></div>
         <div className={classes.box3}><StateChanger sendCommand = {wsSendMessage} state = {state}/></div>
         <div className={classes.box4}><PasswordReset activatePopup = {activatePopup} sendCommand = {wsSendMessage}/></div>
         <div className={classes.box5}><RfidRegister activatePopup = {activatePopup} sendCommand = {wsSendMessage}/></div>
