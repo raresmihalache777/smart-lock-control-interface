@@ -142,6 +142,24 @@ const App = () => {
               }
               break;
             }
+
+            case 'ChangeUsername':{
+              if(response.data.status === 'ok'){
+                activatePopup("New username set!")
+              }else if(response.data.status === 'wronglogin'){
+                activatePopup("Wrong username or password!")
+              }
+              break;
+            }
+
+            case 'ChangePassword':{
+              if(response.data.status === 'ok'){
+                activatePopup("New password set!")
+              }else if(response.data.status === 'wronglogin'){
+                activatePopup("Wrong password!")
+              }
+              break;
+            }
             default:
               console.log(`Response name unknown:${response.name}`)
           }
