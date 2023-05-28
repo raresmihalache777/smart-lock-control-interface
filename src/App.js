@@ -41,7 +41,7 @@ const App = () => {
     },
     onMessage: (event) =>{
       //console.log(event.data)
-      //setFrame(event.data)
+      setFrame(event.data)
 
     },
     //Will attempt to reconnect on all close events, such as server shutting down
