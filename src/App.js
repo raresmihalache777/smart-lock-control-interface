@@ -219,8 +219,8 @@ const App = () => {
   ////////////////////
   //AUTH UTILITY FUNCTIONS
   const sendAuthData = (user, pass) => {
-    wsSendMessage("Login", `Username:${user}, Password:${pass}`)
-    wsSendMessageVideoServer("Login", `Username:${user}, Password:${pass}`)
+    wsSendMessage("Login", `"Username":"${user}", "Password":"${pass}"`)
+    wsSendMessageVideoServer("Login", `"Username":"${user}", "Password":"${pass}"`)
   }
   ////////////////////
 
